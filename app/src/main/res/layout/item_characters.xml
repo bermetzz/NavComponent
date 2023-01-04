@@ -6,7 +6,7 @@
     android:id="@+id/rootLayout"
     android:layout_width="280dp"
     android:layout_height="460dp"
-    app:cardCornerRadius="20dp"
+    android:background="@drawable/cards_bg"
     android:layout_marginVertical="40dp"
     android:layout_gravity="top|center"
     tools:context=".MainActivity">
@@ -15,6 +15,7 @@
         android:layout_width="280dp"
         android:layout_height="460dp"
         android:backgroundTint="@color/white"
+        app:cardElevation="0dp"
         app:cardCornerRadius="20dp">
         <ImageView
             android:src="@color/white"
