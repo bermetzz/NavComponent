@@ -8,11 +8,19 @@
         android:name="com.example.navcomponent.FirstFragment"
         tools:layout="@layout/fragment_first"
         android:label="fragment_first"
-        android:id="@+id/firstFragment"/>
+        android:id="@+id/firstFragment">
+        <action
+            android:id="@+id/action_firstFragment_to_secondFragment"
+            app:destination="@id/secondFragment" />
+    </fragment>
     <fragment
         android:id="@+id/secondFragment"
         android:name="com.example.navcomponent.SecondFragment"
         android:label="fragment_second"
-        tools:layout="@layout/fragment_second" />
+        tools:layout="@layout/fragment_second">
+        <argument
+            android:name="character_description"
+            app:argType="com.example.navcomponent.Character"/>
+    </fragment>
 
 </navigation>

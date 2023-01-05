@@ -9,6 +9,7 @@ import com.example.navcomponent.databinding.FragmentSecondBinding
 
 class SecondFragment : Fragment() {
     private lateinit var binding: FragmentSecondBinding
+    private lateinit var navArgs: SecondFragmentArgs
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -19,11 +20,14 @@ class SecondFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val user = arguments?.getSerializable(FirstFragment.DATA) as Character
+        arguments?.let {
+            navArgs = SecondFragmentArgs.fromBundle(it)
+        }
+        val data = navArgs.characterDescription
         binding.apply {
-            character.loadImage(user.image)
-            description.text = user.desc
-            name.text = user.name
+            character.loadImage(data.image)
+            name.text = data.name
+            description.text = data.desc
         }
     }
 }

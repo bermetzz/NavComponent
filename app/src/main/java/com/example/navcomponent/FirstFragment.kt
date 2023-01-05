@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.navcomponent.databinding.FragmentFirstBinding
@@ -12,9 +11,6 @@ import com.example.navcomponent.databinding.FragmentFirstBinding
 
 class FirstFragment : Fragment() {
     private lateinit var binding: FragmentFirstBinding
-    companion object{
-        const val DATA = "DATA"
-    }
     private val list = arrayListOf<Character>()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,7 +31,7 @@ class FirstFragment : Fragment() {
 
     private fun onClick(position: Int){
         val user = Character(list[position].image, list[position].desc, list[position].name)
-        findNavController().navigate(R.id.secondFragment, bundleOf(DATA to user))
+        findNavController().navigate(FirstFragmentDirections.actionFirstFragmentToSecondFragment(user))
     }
 
     private fun loadData() {
